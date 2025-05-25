@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'tcgsite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("DB_DATABASE"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
+        "NAME": env("DB_DATABASE", default="tcgsite"),
+        "USER": env("DB_USER", default="db_user"),
+        "PASSWORD": env("DB_PASSWORD", default="password"),
+        "HOST": env("DB_HOST", default="127.0.0.1"),
         "PORT": "5432",
         'TEST': {
             'ENGINE': 'django.db.backends.sqlite3',
