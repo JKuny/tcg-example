@@ -390,3 +390,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/python,linux,macos,windows,pycharm+all,sublimetext,visualstudiocode,dotenv
+!/javascript/node_modules/
