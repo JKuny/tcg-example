@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from events import views as tournaments
+from store import views as store
+
 urlpatterns = [
+    path('', store.index, name='index'),
+    path('events/', tournaments.index, name='events'),
     path('admin/', admin.site.urls),
 ]

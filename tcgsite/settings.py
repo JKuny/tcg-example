@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'players.apps.PlayersConfig',
-    'tournaments.apps.TournamentsConfig',
+    'events.apps.TournamentsConfig',
     'store.apps.StoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
