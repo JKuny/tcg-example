@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'players.apps.PlayersConfig',
     'events.apps.TournamentsConfig',
     'store.apps.StoreConfig',

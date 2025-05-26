@@ -1,7 +1,7 @@
 """
 URL configuration for tcgsite project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The `urlpatterns` list routes URLs to views. For more information, please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
@@ -17,12 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from core import views as core
 from events import views as tournaments
+from players import views as players
 from store import views as store
 
 urlpatterns = [
-    path('', store.index, name='index'),
+    # Main views
+    path('', core.index, name='index'),
+    path('store/', store.index, name='store'),
     path('events/', tournaments.index, name='events'),
+    path('players/', players.index, name='players'),
+
+    # Backend/site urls
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
