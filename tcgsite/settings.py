@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 
 import environ
+import shutil
 
 env = environ.Env()
 environ.Env.read_env()
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'tcgsite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("DB_DATABASE", default="tcgsite"),
+        "NAME": env("DB_DATABASE", default="tcg_site"),
         "USER": env("DB_USER", default="db_user"),
         "PASSWORD": env("DB_PASSWORD", default="password"),
         "HOST": env("DB_HOST", default="127.0.0.1"),
@@ -137,3 +138,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django-tailwind configuration
 TAILWIND_APP_NAME = 'theme'
+NPM_BIN_PATH = shutil.which("npm")
