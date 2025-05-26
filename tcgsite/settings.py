@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'players.apps.PlayersConfig',
-    'events.apps.TournamentsConfig',
+    'events.apps.EventsConfig',
     'store.apps.StoreConfig',
     'tailwind',
     'theme',

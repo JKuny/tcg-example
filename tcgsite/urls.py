@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from core import views as core
-from events import views as tournaments
+from events import views as events
 from players import views as players
 from store import views as store
 
@@ -26,7 +26,7 @@ urlpatterns = [
     # Main views
     path('', core.index, name='index'),
     path('store/', store.index, name='store'),
-    path('events/', tournaments.index, name='events'),
+    path('events/', events.index, name='events'),
     path('players/', players.index, name='players'),
 
     # Backend/site urls

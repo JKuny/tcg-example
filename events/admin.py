@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from events.models import Tournament
+from events.models import Event
 
 # Register your models here.
-admin.site.register(Tournament)
+admin.site.register(Event)
