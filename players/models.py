@@ -19,12 +19,6 @@ class Player(models.Model):
         return "{self.user.first_name} {self.user.last_name}"
 
 
-class Organizer(Player):
-    class Meta:
-        verbose_name = 'Organizer'
-        verbose_name_plural = 'Organizers'
-
-
 @receiver(post_save, sender=User)
 def create_player(sender, instance, created, **kwargs):
     """

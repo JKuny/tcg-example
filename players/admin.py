@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Player, Organizer
+from .models import Player
 
 
 class PlayerAdmin(admin.ModelAdmin):
@@ -19,10 +19,5 @@ class PlayerAdmin(admin.ModelAdmin):
 
     list_filter = ["preferred_game"]
 
-class OrganizerAdmin(PlayerAdmin):
-    pass
-
-
 # Register your models here.
 admin.site.register(Player, PlayerAdmin)
-admin.site.register(Organizer, OrganizerAdmin)
