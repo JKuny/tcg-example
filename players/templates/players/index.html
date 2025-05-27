@@ -6,6 +6,20 @@
             <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
                 Players
             </h1>
+
+            <div>
+                {% for player in latest_player_list %}
+                    <div>
+                        <ul>
+                            <li>{{ player }}</li>
+                            <li>{{ player.preferred_game }}</li>
+                            <li>{{ player.user.date_joined }}</li>
+                            <li><a href="{{ player.id }}"
+                                   class="btn btn-primary">View</a></li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

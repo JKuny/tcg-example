@@ -27,9 +27,11 @@ urlpatterns = [
     path('', core.index, name='index'),
     path('store/', store.index, name='store'),
     path('events/', events.index, name='events'),
+    path('events/<int:event_id>/', events.details, name='detail'),
     path('players/', players.index, name='players'),
+    path('players/<int:player_id>', players.details, name='detail'),
 
     # Backend/site urls
     path('admin/', admin.site.urls),
-    path("__reload__/", include("django_browser_reload.urls")),
+    path('__reload__/', include('django_browser_reload.urls')),
 ]

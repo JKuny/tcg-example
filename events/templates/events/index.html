@@ -6,6 +6,16 @@
             <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
                 Events
             </h1>
+
+            <div>
+                {% for event in latest_events_list %}
+                    <div>
+                        {{ event.game_name }}
+                        {{ event.start_time }}
+                        <a href="{% url 'events' %}" class="btn btn-primary">View</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -12,3 +12,6 @@ def index(request):
         'latest_events_list': latest_events_list,
     }
     return HttpResponse(template.render(context, request))
+
+def details(request, event_id):
+    return HttpResponse("You're looking at event %s" % event_id)
