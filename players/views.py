@@ -5,7 +5,7 @@ from players.models import Player
 
 
 def index(request):
-    latest_player_list = Player.objects.order_by('-user__date_joined')[:5]
+    latest_player_list = Player.objects.order_by('-user__date_joined').filter(user__is_superuser=False)[:5]
     template = loader.get_template('players/index.html')
     context = {
         'latest_player_list': latest_player_list
