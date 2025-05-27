@@ -19,7 +19,10 @@ class PlayerAdmin(admin.ModelAdmin):
 
     list_filter = ["preferred_game"]
 
+class OrganizerAdmin(PlayerAdmin):
+    pass
+
 
 # Register your models here.
 admin.site.register(Player, PlayerAdmin)
-admin.site.register(Organizer, PlayerAdmin)
+admin.site.register(Organizer, OrganizerAdmin)
