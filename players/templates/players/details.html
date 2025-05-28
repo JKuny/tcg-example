@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="min-h-screen py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+                {{ current_player }}
+            </h1>
+
+            <div class="card-base">
+                <ul>
+                    <li>Preferred Game: {{ current_player.preferred_game }}</li>
+                    <li>Date Joined: {{ current_player.user.date_joined }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
