@@ -1,0 +1,30 @@
+[
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "game_name": "Flesh & Blood",
+      "start_date": "2025-05-27",
+      "start_time": "20:51:52",
+      "end_time": "20:55:53",
+      "player_spaces": 16,
+      "description": "FFA",
+      "rules": "Classic Constructed",
+      "price": 10.00
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "game_name": "Pokemon",
+      "start_date": "2025-05-27",
+      "start_time": "20:56:03",
+      "end_time": "20:57:03",
+      "player_spaces": 8,
+      "description": "FFA",
+      "rules": "Standard",
+      "price": 5.00
+    }
+  }
+]
