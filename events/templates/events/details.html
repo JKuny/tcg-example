@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="min-h-screen py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+                {{ current_event }}
+            </h1>
+
+            <div class="card-base">
+                <ul>
+                    <li>Game: {{ current_event.game_name }}</li>
+                    <li>Date: {{ current_event.start_date }}</li>
+                    <li>Start Time: {{ current_event.start_time }}</li>
+                    <li>End Time: {{ current_event.end_time }}</li>
+                    <li>Price: {{ current_event.price }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -18,18 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from core import views as core
-from events import views as events
-from players import views as players
 from store import views as store
 
 urlpatterns = [
     # Main views
     path('', core.index, name='index'),
+
+    # Store
     path('store/', store.index, name='store'),
-    path('events/', events.index, name='events'),
-    path('events/<int:event_id>/', events.details, name='detail'),
-    path('players/', players.index, name='players'),
-    path('players/<int:player_id>', players.details, name='detail'),
+    path('events/', include('events.urls', namespace='events')),
+    path('players/', include('players.urls', namespace='players')),
 
     # Backend/site urls
     path('admin/', admin.site.urls),

@@ -7,6 +7,16 @@
                 Players
             </h1>
 
+            <div class="font-bold text-gray-800 mb-8 text-center">
+                <form action="" method="get">
+                    <label>
+                        <input class="text-center" name="player_search"
+                               type="text"
+                               placeholder="Search players">
+                    </label>
+                </form>
+            </div>
+
             <div>
                 {% for player in latest_player_list %}
                     <div class="card-base">

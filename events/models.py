@@ -14,7 +14,7 @@ class Event(models.Model):
     )
     game_name = models.CharField(max_length=200)
     start_date = models.DateField('date started',
-                                      validators=[validate_future_date])
+                                  validators=[validate_future_date])
     start_time = models.TimeField('time started')
     end_time = models.TimeField('time ended')
     player_spaces = models.IntegerField()
@@ -27,6 +27,9 @@ class Event(models.Model):
         related_name='participating_events'
     )
 
+    def __str__(self):
+        return f"{self.game_name} - {self.rules}"
+
 
 class EventParticipation(models.Model):
     """
@@ -35,8 +38,6 @@ class EventParticipation(models.Model):
     """
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-
-    # Additional fields you might want
     registration_date = models.DateTimeField(auto_now_add=True)
     attended = models.BooleanField(default=False)
     notes = models.TextField(blank=True)

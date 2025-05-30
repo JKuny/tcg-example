@@ -7,17 +7,8 @@
                 Events
             </h1>
 
-            <div class="font-bold text-gray-800 mb-8 text-center">
-                <form action="{% url 'events:search_results' %}" method="get">
-                    <label>
-                        <input class="text-center" name="event_search" type="text"
-                               placeholder="Search events">
-                    </label>
-                </form>
-            </div>
-
             <div class="grid md:grid-cols-3 gap-8">
-                {% for event in latest_events_list %}
+                {% for event in object_list %}
                     <div class="card-base">
                         <ul>
                             <li class="font-semibold">{{ event.game_name }}</li>
@@ -25,8 +16,8 @@
                                 thru {{ event.end_time }}</li>
                             <li>{{ event.rules }}</li>
                         </ul>
-                        <a href="{{ event.id }}"
-                           class="btn btn-primary text-left">View</a>
+                        <a href="{% url 'events:detail' event.id %}"
+                           class="btn btn-primary">View</a>
                     </div>
                 {% endfor %}
             </div>
