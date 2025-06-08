@@ -17,19 +17,25 @@
                 </form>
             </div>
 
-            <div>
-                {% for player in latest_player_list %}
-                    <div class="card-base">
-                        <ul>
-                            <li>{{ player }}</li>
-                            <li>{{ player.preferred_game }}</li>
-                            <li>{{ player.user.date_joined }}</li>
-                            <li><a href="{{ player.id }}"
-                                   class="btn btn-primary">View</a></li>
-                        </ul>
-                    </div>
-                {% endfor %}
-            </div>
+            {% if not latest_player_list %}
+                <div class="card-base text-center">
+                    No recent players, check back soon.
+                </div>
+            {% else %}
+                <div class="grid md:grid-cols-3 gap-8">
+                    {% for player in latest_player_list %}
+                        <div class="card-base">
+                            <ul>
+                                <li>{{ player }}</li>
+                                <li>{{ player.preferred_game }}</li>
+                                <li>{{ player.user.date_joined }}</li>
+                                <li><a href="{{ player.id }}"
+                                       class="btn btn-primary">View</a></li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

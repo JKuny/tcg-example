@@ -8,6 +8,9 @@ from events.models import Event
 # Create your views here.
 def index(request):
     latest_events_list = Event.objects.order_by('-start_date')[:5]
+    if len(latest_events_list) == 0:
+        latest_events_list = Event.objects.all()
+
     template = loader.get_template('events/index.html')
     context = {
         'latest_events_list': latest_events_list,
