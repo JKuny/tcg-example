@@ -9,57 +9,113 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('players', '0001_initial'),
+        ("players", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('game_name', models.CharField(max_length=200)),
-                ('start_date', models.DateTimeField(verbose_name='date started')),
-                ('start_time', models.TimeField(verbose_name='time started')),
-                ('end_time', models.TimeField(verbose_name='time ended')),
-                ('player_spaces', models.IntegerField()),
-                ('description', models.TextField()),
-                ('rules', models.TextField()),
-                ('price', models.DecimalField(decimal_places=2, max_digits=6)),
-                ('organizer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='organized_events', to='players.player')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("game_name", models.CharField(max_length=200)),
+                ("start_date", models.DateTimeField(verbose_name="date started")),
+                ("start_time", models.TimeField(verbose_name="time started")),
+                ("end_time", models.TimeField(verbose_name="time ended")),
+                ("player_spaces", models.IntegerField()),
+                ("description", models.TextField()),
+                ("rules", models.TextField()),
+                ("price", models.DecimalField(decimal_places=2, max_digits=6)),
+                (
+                    "organizer",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="organized_events",
+                        to="players.player",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='EventParticipation',
+            name="EventParticipation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('registration_date', models.DateTimeField(auto_now_add=True)),
-                ('attended', models.BooleanField(default=False)),
-                ('notes', models.TextField(blank=True)),
-                ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='events.event')),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='players.player')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("registration_date", models.DateTimeField(auto_now_add=True)),
+                ("attended", models.BooleanField(default=False)),
+                ("notes", models.TextField(blank=True)),
+                (
+                    "event",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="events.event"
+                    ),
+                ),
+                (
+                    "player",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="players.player"
+                    ),
+                ),
             ],
             options={
-                'ordering': ['registration_date'],
-                'unique_together': {('player', 'event')},
+                "ordering": ["registration_date"],
+                "unique_together": {("player", "event")},
             },
         ),
         migrations.AddField(
-            model_name='event',
-            name='participants',
-            field=models.ManyToManyField(related_name='participating_events', through='events.EventParticipation', to='players.player'),
+            model_name="event",
+            name="participants",
+            field=models.ManyToManyField(
+                related_name="participating_events",
+                through="events.EventParticipation",
+                to="players.player",
+            ),
         ),
         migrations.CreateModel(
-            name='EventParticipant',
+            name="EventParticipant",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('registration_date', models.DateTimeField(auto_now_add=True)),
-                ('attended', models.BooleanField(default=False)),
-                ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='events.event')),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='players.player')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("registration_date", models.DateTimeField(auto_now_add=True)),
+                ("attended", models.BooleanField(default=False)),
+                (
+                    "event",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="events.event"
+                    ),
+                ),
+                (
+                    "player",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="players.player"
+                    ),
+                ),
             ],
             options={
-                'ordering': ['registration_date'],
-                'unique_together': {('player', 'event')},
+                "ordering": ["registration_date"],
+                "unique_together": {("player", "event")},
             },
         ),
     ]

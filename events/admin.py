@@ -4,13 +4,13 @@ from .models import Event
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('game_name', 'get_time_date')
-    search_fields = ('game_name', 'start_date')
+    list_display = ("game_name", "get_time_date")
+    search_fields = ("game_name", "start_date")
 
     def get_time_date(self, obj):
         return f"{obj.start_date} {obj.start_time}"
 
-    get_time_date.short_description = 'Date'
+    get_time_date.short_description = "Date"
 
     list_filter = ["game_name"]
 

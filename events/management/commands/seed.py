@@ -11,22 +11,22 @@ from events.models import Event
 # python manage.py seed --mode=refresh
 
 """ Clear all data and creates eventes """
-MODE_REFRESH = 'refresh'
+MODE_REFRESH = "refresh"
 
 """ Clear all data and do not create any object """
-MODE_CLEAR = 'clear'
+MODE_CLEAR = "clear"
 
 
 class Command(BaseCommand):
     help = "seed database for testing and development."
 
     def add_arguments(self, parser):
-        parser.add_argument('--mode', type=str, help="Mode")
+        parser.add_argument("--mode", type=str, help="Mode")
 
     def handle(self, *args, **options):
-        self.stdout.write('seeding data...')
-        run_seed(self, options['mode'])
-        self.stdout.write('done.')
+        self.stdout.write("seeding data...")
+        run_seed(self, options["mode"])
+        self.stdout.write("done.")
 
 
 def clear_data():
@@ -36,8 +36,7 @@ def clear_data():
 
 def create_event():
     """Creates an event object combining different elements from the list"""
-    games = ["Magic: The Gathering", "Flesh & Blood", "Lorcana", "Pokemon",
-             "Yu-Gi-Oh"]
+    games = ["Magic: The Gathering", "Flesh & Blood", "Lorcana", "Pokemon", "Yu-Gi-Oh"]
     game_format = ["Casual", "Tournament", "Draft", "Pre-release"]
     price = [0, 10, 15, 35]
     player_spaces = [8, 16]
@@ -48,8 +47,13 @@ def create_event():
         start_time=timezone.now().time(),
         end_time=(timezone.now() + datetime.timedelta(hours=2)).time(),
         player_spaces=random.choice(player_spaces),
-        description=get_paragraph(count=1, comma=(0, 2), word_range=(4, 8),
-                                  sentence_range=(5, 10), sep=os.linesep),
+        description=get_paragraph(
+            count=1,
+            comma=(0, 2),
+            word_range=(4, 8),
+            sentence_range=(5, 10),
+            sep=os.linesep,
+        ),
         rules=random.choice(game_format),
         price=random.choice(price),
     )
@@ -59,7 +63,7 @@ def create_event():
 
 
 def run_seed(self, mode):
-    """ Seed database based on mode
+    """Seed database based on mode
 
     :param mode: refresh / clear
     :return:

@@ -15,13 +15,30 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Player',
+            name="Player",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('phone_number', models.CharField(blank=True, max_length=15)),
-                ('preferred_game', models.CharField(blank=True, max_length=15)),
-                ('profile_picture', models.ImageField(blank=True, upload_to='profile_pictures')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("phone_number", models.CharField(blank=True, max_length=15)),
+                ("preferred_game", models.CharField(blank=True, max_length=15)),
+                (
+                    "profile_picture",
+                    models.ImageField(blank=True, upload_to="profile_pictures"),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

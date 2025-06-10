@@ -7,5 +7,5 @@ def validate_future_date(value):
     if isinstance(value, date):
         if value < timezone.now().date():
             raise ValidationError(
-                'Date cannot be in the past. Please select a future date.'
+                "Date cannot be in the past. Please select a future date."
             )

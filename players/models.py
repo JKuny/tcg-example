@@ -12,8 +12,7 @@ class Player(models.Model):
     # Add own fields to customize the user
     phone_number = models.CharField(max_length=15, blank=True)
     preferred_game = models.CharField(max_length=15, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures',
-                                        blank=True)
+    profile_picture = models.ImageField(upload_to="profile_pictures", blank=True)
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
