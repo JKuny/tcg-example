@@ -10,7 +10,7 @@ from events.models import Event
 
 # python manage.py seed --mode=refresh
 
-""" Clear all data and creates eventes """
+""" Clear all data and creates events """
 MODE_REFRESH = "refresh"
 
 """ Clear all data and do not create any object """
