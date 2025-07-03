@@ -12,12 +12,10 @@
                     <div class="card-base">
                         <ul>
                             <li class="font-semibold">{{ event.game_name }}</li>
-                            <li>{{ event.start_time }}
-                                thru {{ event.end_time }}</li>
+                            <li>{{ event.start_time }} thru {{ event.end_time }}</li>
                             <li>{{ event.rules }}</li>
                         </ul>
-                        <a href="{% url 'events:detail' event.id %}"
-                           class="btn btn-primary">View</a>
+                        <a href="{% url 'events:detail' event.id %}" class="btn btn-primary">View</a>
                     </div>
                 {% endfor %}
             </div>

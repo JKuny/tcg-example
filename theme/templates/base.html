@@ -16,6 +16,7 @@
     <div class="container mx-auto">
         {% block header %}
             <span class="flex items-center justify-center">
+                <a href="{% url 'index' %}" class="btn btn-primary">Home</a>
                 <a href="{% url 'store' %}" class="btn btn-primary">Store</a>
                 <a href="{% url 'events:events' %}" class="btn btn-primary">Events</a>
                 <a href="{% url 'players:players' %}" class="btn btn-primary">Players</a>

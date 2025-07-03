@@ -1,9 +1,8 @@
 from django.db.models import Q
 from django.http import HttpResponse
 from django.template import loader
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView
 
-from events.models import Event
 from players.models import Player
 
 
@@ -25,12 +24,13 @@ def details(request, player_id):
 
 
 class SearchResultsView(ListView):
-    model = Event
+    model = Player
     template_name = "players/search_results.html"
 
     def get_queryset(self):
-        query = self.request.GET.get("q")
-        object_list = Event.objects.filter(
-            Q(event_name__icontains=query) | Q(state__icontains=query)
+        query = self.request.GET.get("player_search", "")
+        object_list = Player.objects.filter(
+            Q(user__first_name__icontains=query) |
+            Q(user__last_name__icontains=query)
         )
         return object_list

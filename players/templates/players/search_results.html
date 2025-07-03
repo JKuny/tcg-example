@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="min-h-screen py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+                Players
+            </h1>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                {% for player in object_list %}
+                    <div class="card-base">
+                        <ul>
+                            <li class="font-semibold">{{ player.user.get_full_name }}</li>
+                            <li>{{ player.preferred_game }}</li>
+                        </ul>
+                        <a href="{% url 'players:detail' player.id %}" class="btn btn-primary">View</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

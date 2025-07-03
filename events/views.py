@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import ListView
@@ -30,4 +31,8 @@ class SearchResultsView(ListView):
     template_name = "events/search_results.html"
 
     def get_queryset(self):
-        return Event.objects.filter(game_name__icontains="Pokemon")
+        query = self.request.GET.get("event_search")
+        object_list = Event.objects.filter(
+            Q(game_name__icontains=query)
+        )
+        return object_list
