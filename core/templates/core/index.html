@@ -1,37 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="min-h-screen py-12">
-    <div class="max-w-4xl mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
-            Welcome to tcg-example.
-        </h1>
+    <div class="min-h-screen py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+                Welcome to tcg-example.
+            </h1>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="card-base">
-                <h2 class="text-2xl font-semibold mb-4">Store</h2>
-                <p class="text-gray-600">Browse and purchase TCG products
-                    and accessories.</p>
-                <a href="{% url 'store' %}" class="btn btn-primary">Shop
-                    Now</a>
-            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-base">
+                    <h2 class="text-2xl font-semibold mb-4">Store</h2>
+                    <p class="text-gray-600">Browse and purchase TCG products
+                        and accessories.</p>
+                    <a href="{% url 'store' %}" class="btn btn-primary">Shop
+                        Now</a>
+                </div>
 
-            <div class="card-base">
-                <h2 class="text-2xl font-semibold mb-4">Players</h2>
-                <p class="text-gray-600">View store event performances for
-                    local players.</p>
-                <a href="{% url 'players:players' %}" class="btn btn-primary">View
-                    Players</a>
-            </div>
+                <div class="card-base">
+                    <h2 class="text-2xl font-semibold mb-4">Players</h2>
+                    <p class="text-gray-600">View store event performances for
+                        local players.</p>
+                    <a href="{% url 'players:players' %}"
+                       class="btn btn-primary">View Players</a>
+                </div>
 
-            <div class="card-base">
-                <h2 class="text-2xl font-semibold mb-4">Events</h2>
-                <p class="text-gray-600">View store upcoming events and past
-                    event results.</p>
-                <a href="{% url 'events:events' %}" class="btn btn-primary">View
-                    Events</a>
+                <div class="card-base">
+                    <h2 class="text-2xl font-semibold mb-4">Events</h2>
+                    <p class="text-gray-600">View store upcoming events and past
+                        event results.</p>
+                    <a href="{% url 'events:events' %}" class="btn btn-primary">View
+                        Events</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
