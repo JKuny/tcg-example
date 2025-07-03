@@ -15,6 +15,11 @@
 {% block body %}
     <div class="container mx-auto">
         {% block header %}
+            <span class="flex items-center justify-center">
+                <a href="{% url 'store' %}" class="btn btn-primary">Store</a>
+                <a href="{% url 'events:events' %}" class="btn btn-primary">Events</a>
+                <a href="{% url 'players:players' %}" class="btn btn-primary">Players</a>
+            </span>
         {% endblock %}
 
         {% block content %}
@@ -24,6 +29,9 @@
         {% endblock %}
 
         {% block footer %}
+            <div class="text-center text-gray-500 text-sm mt-12">
+                &#169; 2025 James Kuny
+            </div>
         {% endblock %}
     </div>
 {% endblock %}
