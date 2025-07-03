@@ -24,7 +24,7 @@ class Command(BaseCommand):
         parser.add_argument("--mode", type=str, help="Mode")
 
     def handle(self, *args, **options):
-        self.stdout.write("seeding data...")
+        self.stdout.write("seeding event data...")
         run_seed(self, options["mode"])
         self.stdout.write("done.")
 
