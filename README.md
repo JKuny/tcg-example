@@ -11,7 +11,7 @@ purposes.
 pyenv install 3.10.11
 
 # Setup venv
-uv venv
+uv venv --seed
 
 # Start the Postgres database
 docker compose up -d
